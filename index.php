@@ -36,7 +36,7 @@ if (isset($_POST["login"]) && authenticateuser($_POST["username"], $_POST["passw
 		}
 	}
 ?>
-<script src="js/drop.js"></script>
+<!-- <script src="js/drop.js"></script> -->
 <script src="js/gallery.js"></script>
 <script src="js/functions.js"></script>
 </body>

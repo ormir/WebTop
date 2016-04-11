@@ -66,7 +66,7 @@ function restoreSavedPositions() {
 		type: 'post',
 	})
 	.done(function(elementList) {
-		console.log(elementList);
+		// console.log(elementList);
 
 		$.each(elementList, function(index, val) {
 			$('#' + index).show();
