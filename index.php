@@ -11,7 +11,7 @@ if (isset($_POST["login"]) && authenticateuser($_POST["username"], $_POST["passw
 	$_SESSION["username"] = $_POST["username"];
 } else if (isset($_COOKIE["username"])) {
 	setcookie("username", "", time() - 3600);
-}
+} 
 ?>
 <html>
 <head>
