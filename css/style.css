@@ -108,3 +108,40 @@ body{
 
 	overflow: auto;
 }
+
+/* Gallery */
+
+#gallery {
+	height: 100%;
+}
+
+/* Drop Gallery*/
+#drop-info {
+	top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+	position: absolute;
+    display: none;
+    z-index: 5;
+    margin: 25 2 2 2;
+}
+
+#drop-info p {
+	border: 10px dashed white;
+	border-radius: 30px;
+	color: white;
+	font-size: 200%;
+	margin: 100px;
+	padding: 100px;
+}
+
+#drop-content {
+	
+	position: center;
+}
+
+#gallery:hover #drop-info {
+    display: block;
+}

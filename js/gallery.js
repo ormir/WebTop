@@ -1,7 +1,7 @@
 $(function() {
-	// Show images
-	
-	// Upload image
-	
-	// Delete Image
+   $('#gallery').mouseover(function(){
+     $(this).append($('#drop-info'));
+ });
 });
+
+
