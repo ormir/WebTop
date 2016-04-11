@@ -23,7 +23,7 @@
 <div id="fhtw_window" class="window draggable">
 	<img class="img-close" src="images/close.png">
 	<div class="windowcontent">
-		<iframe src="http://www.technikum-wien.at"></iframe>
+		<!-- <iframe src="http://www.technikum-wien.at"></iframe> -->
 	</div>
 </div>
 
