@@ -116,7 +116,6 @@ body{
 }
 
 /* Drop Gallery*/
-
 #drop-info {
 	top: 0;
     bottom: 0;
@@ -130,10 +129,12 @@ body{
 }
 
 #drop-info p {
-	border: 2px dashed #bdc3c7;
-	color: #2980b9;
+	border: 10px dashed white;
+	border-radius: 30px;
+	color: white;
 	font-size: 200%;
-	text-align: center;
+	margin: 100px;
+	padding: 100px;
 }
 
 #drop-content {

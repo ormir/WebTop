@@ -1,5 +1,5 @@
 <div id="drop-info">
-		<p>Drop Images</p>
+	<p>DROP</p>
 </div>
 
 <div id='gallery'>
