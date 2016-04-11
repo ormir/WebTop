@@ -9,3 +9,4 @@
 <!-- Drop JS -->
 <!-- <script src="http://code.jquery.com/jquery-2.1.1-rc2.min.js" ></script> -->
 <script src="http://malsup.github.com/jquery.form.js"></script> 
+<script src="//cdn.rawgit.com/lolmaus/jquery.dragbetter/0.x/jquery.dragbetter.js"></script>
