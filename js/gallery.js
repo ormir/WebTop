@@ -35,6 +35,8 @@ $(function() {
 
 	});
 
+	// $('.thumbnail-close')
+
 });
 
 function upload(file){

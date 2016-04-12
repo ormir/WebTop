@@ -14,8 +14,10 @@
 		<?php 
 			$resource = opendir("upload"); //if the folder in our htdocs is called "upload"
 			while (($entry = readdir($resource)) !== FALSE){
-				if($entry != '.' && $entry != '..'){
-					echo "<img src='upload/$entry'>"; 
+				if($entry != '.' && $entry != '..' && $entry != '.DS_Store'){
+					echo "<div class='gallery-thumbnail'>".
+						"<img class='thumbnail-close'> src='../images/delete.png'>".
+						"<img src='upload/$entry'> </div>"; 
 					// $file_name.= $entry.'<br>';
 				}
 			}
