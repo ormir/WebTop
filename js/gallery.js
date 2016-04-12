@@ -1,6 +1,25 @@
 $(function() {
 	$(document).ready(function() {
-		$(".fancybox").fancybox();
+		$(".fancybox").fancybox({
+			afterLoad   : function() {
+		        this.title="<div class='fancy-overlay'>"+
+		        	"<a href='#'><img src='images/greyscale.png'></a>"+
+		        	"<img src='images/mirror.png'>"+
+		        	"<img src='images/rotate_clockwise.png'>"+
+		        	"<img src='images/rotate_anticlockwise.png'>"+
+		        	"</div>";
+		    },
+		    helpers : {
+		        title: {
+		            type: 'inside'
+		        }
+		    }
+
+		});
+	});
+
+	$('.fancy-overlay a').click(function(event) {
+		alert("hallo");
 	});
 	
 	// Prevent default for dragging

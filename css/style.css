@@ -214,3 +214,19 @@ body{
 .fancybox-close:link {
 	background-color: transparent;
 }
+
+.fancy-overlay {
+	position: absolute;
+	width: 90%;
+	bottom: 0;
+	padding: 0 5%;
+	background-color: rgba(255, 255, 255, 0.7);
+	text-align: center;
+}
+
+.fancy-overlay img {
+	padding: 1%;
+	max-width: 30px;
+	max-height: 30px;
+	z-index: 100000;
+}
