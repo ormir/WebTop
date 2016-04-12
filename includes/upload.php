@@ -18,9 +18,9 @@ if ((($_FILES["file"]["type"] == "image/gif")
   if ($_FILES["file"]["error"] > 0) {
     echo "0";
   } else {
-    $target = "upload/";
+    $target = "../upload/";
     move_uploaded_file($_FILES["file"]["tmp_name"], $target. $_FILES["file"]["name"]);
-    echo  "upload/" . $_FILES["file"]["name"];
+    echo  "../upload/" . $_FILES["file"]["name"];
   }
 } else {
   echo "0";
