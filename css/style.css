@@ -31,7 +31,8 @@ body{
 	height: 50px;
 	position: fixed;
 	bottom: 0;
-	background-color: #E8C60C;
+/*	background-color: #E8C60C;*/
+	background-color: #34495e;
 }
 
 #taskleiste img{
@@ -47,7 +48,8 @@ body{
 #taskmenu {
 	width: 250px;
 	height: 400px;
-	background-color: #E8C60C;
+	/*background-color: #E8C60C;*/
+	background-color: #34495e;
 	position: absolute;
 	bottom: 50px;
 	padding-left: 10px;
