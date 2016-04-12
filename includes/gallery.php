@@ -16,7 +16,7 @@
 			while (($entry = readdir($resource)) !== FALSE){
 				if($entry != '.' && $entry != '..' && $entry != '.DS_Store'){
 					echo "<div class='gallery-thumbnail'>".
-						"<img class='thumbnail-close'> src='../images/delete.png'>".
+						"<img class='thumbnail-close' src='images/delete.png'>".
 						"<img src='upload/$entry'> </div>"; 
 					// $file_name.= $entry.'<br>';
 				}
