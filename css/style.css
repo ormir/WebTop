@@ -206,3 +206,11 @@ body{
 	float:left;
 	position: relative;
 }
+
+.fancybox-nav:link {
+	background: none;
+}
+
+.fancybox-close:link {
+	background-color: transparent;
+}

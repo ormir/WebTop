@@ -10,9 +10,12 @@
 			$resource = opendir("upload"); //if the folder in our htdocs is called "upload"
 			while (($entry = readdir($resource)) !== FALSE){
 				if($entry != '.' && $entry != '..' && $entry != '.DS_Store'){
+
 					echo "<div class='gallery-thumbnail'>".
-						"<img class='thumbnail-close' src='images/delete.png'>".
-						"<img class='thumbnail-content' src='upload/$entry'> </div>"; 
+					"<img class='thumbnail-close' src='images/delete.png'>".
+					"<a class='fancybox' rel='group' href='upload/$entry'>".
+					"<img class='thumbnail-content' src='upload/$entry' alt='' />".
+					"</a></div>"; 
 				}
 			}
 		?>

@@ -1,5 +1,7 @@
 $(function() {
-	var dragging = false;
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+	});
 	
 	// Prevent default for dragging
 	$(document).bind('dragover', function (e) {
@@ -57,40 +59,42 @@ function upload(file){
 	xhr = new XMLHttpRequest();
 
 	//check if the uploading file is image
-	if(xhr.upload && check(file.type))
-	{
-	//initiate request
-	xhr.open('post','includes/drop_upload.php',true);
+	if(xhr.upload && check(file.type)) {
+		//initiate request
+		xhr.open('post','includes/drop_upload.php',true);
 
-	//set headers
-	xhr.setRequestHeader('Content-Type',"multipart/form-data");
-	xhr.setRequestHeader('X-File-Name',file.fileName);
-	xhr.setRequestHeader('X-File-Size',file.fileSize);
-	xhr.setRequestHeader('X-File-Type',file.fileType);
+		//set headers
+		xhr.setRequestHeader('Content-Type',"multipart/form-data");
+		xhr.setRequestHeader('X-File-Name',file.fileName);
+		xhr.setRequestHeader('X-File-Size',file.fileSize);
+		xhr.setRequestHeader('X-File-Type',file.fileType);
 
-	//send the file
-	xhr.send(file);
+		//send the file
+		xhr.send(file);
 
-	//event listener
-	xhr.upload.addEventListener("progress",function(e){
-		var progress= (e.loaded/e.total)*100;
-		$('.progress').show();
-		$('.progress-bar').css('width',progress+"%");
-	},false);
+		//event listener
+		xhr.upload.addEventListener("progress",function(e){
+			var progress= (e.loaded/e.total)*100;
+			$('.progress').show();
+			$('.progress-bar').css('width',progress+"%");
+		},false);
 
-	//upload complete check
-	xhr.onreadystatechange = function (e){
-		if(xhr.readyState ===4)
-		{
-			if(xhr.status==200)
+		//upload complete check
+		xhr.onreadystatechange = function (e){
+			if(xhr.readyState ===4)
 			{
-				$('.progress').hide();
-				$("#gallery-images").html("<div class='gallery-thumbnail'>"+
-						"<img class='thumbnail-close' src='images/delete.png'>"+
-						"<img src='"+xhr.responseText+"' width='100%'/></div>");
+				if(xhr.status==200)
+				{
+					$('.progress').hide();
+					$("#gallery-images")
+						.append("<div class='gallery-thumbnail'>"+
+							"<img class='thumbnail-close' src='images/delete.png'>"+
+							"<a class='fancybox' rel='group' href='"+xhr.responseText+"'>"+
+							"<img class='thumbnail-content' src='"+xhr.responseText+"' width='100%'/>"+
+							"</a></div>");
+				}
 			}
 		}
-	}
 	}
 	else
 		alert("please upload only images");
