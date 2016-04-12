@@ -71,7 +71,9 @@ function upload(file){
 			if(xhr.status==200)
 			{
 				$('.progress').hide();
-				$(".image").html("<img src='"+xhr.responseText+"' width='100%'/>");
+				$("#gallery-images").html("<div class='gallery-thumbnail'>"+
+						"<img class='thumbnail-close' src='images/delete.png'>"+
+						"<img src='"+xhr.responseText+"' width='100%'/></div>");
 			}
 		}
 	}
