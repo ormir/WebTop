@@ -44,12 +44,10 @@ $(function() {
 });
 
 function deleteGalleryImage(image) {
-	console.log(image.attr('src'));
-
 	$.ajax({
 		url: 'ajax/delete_gallery_image.php',
 		type: 'post',
-		data: {elementid: myElmemetId},
+		data: {path: image.attr('src')}
 	});
 }
 
