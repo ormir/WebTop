@@ -40,12 +40,13 @@ $(function() {
 	// Delete image from gallery
 	$('.thumbnail-close').click(function() {
 		$(this).parent().fadeOut();
-		deleteGalleryImage($(this).siblings());
+		deleteGalleryImage($(this).parent());
 	});
 
 });
 
 function deleteGalleryImage(image) {
+	image = image.find('.thumbnail-content');
 	$.ajax({
 		url: 'ajax/delete_gallery_image.php',
 		type: 'post',

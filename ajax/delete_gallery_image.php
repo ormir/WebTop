@@ -6,5 +6,7 @@ if (isset($_POST['path'])) {
 	if(!unlink($filepath)){
 		echo "Could not delete file ".$filepath;
 	}
+} else {
+	echo $_POST['path'];
 }
 ?>
