@@ -6,6 +6,7 @@ $(function() {
          e.preventDefault();
     });
 
+
     $('#gallery')
 	  .on('dragbetterenter', function() {
 	  	$('#drop-info').show();
@@ -19,7 +20,7 @@ $(function() {
 	$('#gallery').on('drop',function(e){
 		e.stopPropagation();
 		e.preventDefault();
-		alert("upload");
+		// alert("upload");
 
 		// Hide "Drop" hint
 		$('#drop-info').hide();
@@ -45,7 +46,7 @@ function upload(file){
 	if(xhr.upload && check(file.type))
 	{
 	//initiate request
-	xhr.open('post','drop.php',true);
+	xhr.open('post','includes/drop_upload.php',true);
 
 	//set headers
 	xhr.setRequestHeader('Content-Type',"multipart/form-data");
