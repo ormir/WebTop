@@ -1,13 +1,13 @@
 <!-- Icons -->
-<div id="fhtw_icon" class="desktopicon draggable" onclick="openWindow(fhtw_window)">
+<div id="fhtw_icon" class="desktopicon draggable" ondblclick="openWindow(fhtw_window)">
 	<img src="images/book.png">
 	<p>Technikum<br>Wien</p>
 </div>
-<div id="phpinfo_icon" class="desktopicon draggable" onclick="openWindow(phpinfo_window)">
+<div id="phpinfo_icon" class="desktopicon draggable" ondblclick="openWindow(phpinfo_window)">
 	<img src="images/code.png">
 	<p>PHP</p>
 </div>
-<div id="gallery_icon" class="desktopicon draggable" onclick="openWindow(gallery_window)">
+<div id="gallery_icon" class="desktopicon draggable" ondblclick="openWindow(gallery_window)">
 	<img src="images/image.png">
 	<p>Gallery</p>
 </div>
