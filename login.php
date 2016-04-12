@@ -4,7 +4,7 @@
 		<h2 id="logintext">Login to Webtop</h2>
 		<input type="text" name="username" placeholder="Username" required autofocus></br>
 		<input type="password" name="password" placeholder="Password" required><br>
-		<input type="checkbox" name='remember' value="yes"><p id="logintext">Remember Me</p></input><br>
+		<input type="checkbox" name='remember' value="yes"><a id="logintext">Remember Me</a></input><br>
 		<button type="submit" name="login">Login</button>
 	</form>
 </div>
