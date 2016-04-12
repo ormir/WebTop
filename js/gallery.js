@@ -35,9 +35,23 @@ $(function() {
 
 	});
 
-	// $('.thumbnail-close')
+	// Delete image from gallery
+	$('.thumbnail-close').click(function() {
+		$(this).parent().fadeOut();
+		deleteGalleryImage($(this).siblings());
+	});
 
 });
+
+function deleteGalleryImage(image) {
+	console.log(image.attr('src'));
+
+	$.ajax({
+		url: 'ajax/delete_gallery_image.php',
+		type: 'post',
+		data: {elementid: myElmemetId},
+	});
+}
 
 function upload(file){
 
