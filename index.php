@@ -1,6 +1,20 @@
 <?php 
 session_start();
-$loggin = false;
+$login = false;
+
+$servername = "localhost";
+$db = "webtop";
+$username = "root";
+$password = "root";
+$port = 8889;
+
+// Create connection
+$mysqli = new mysqli("$servername:$port", $username, $password, $db);
+
+// Check connection
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
 
 // Check for remember user
 if (isset($_POST["login"]) && authenticateuser($_POST["username"], $_POST["password"])){
@@ -29,14 +43,25 @@ if (isset($_POST["login"]) && authenticateuser($_POST["username"], $_POST["passw
 	}
 
 	function authenticateuser($user, $password){
-		if ($user == "1" && $password == "1") {
+		global $mysqli;
+
+		if ($mysqli->connect_error) {
+		    die("Connection failed: " . $mysqli->connect_error);
+		}
+
+		$sql = "SELECT username FROM user WHERE username = '$user' AND pwd = '".md5($password)."'";
+
+		$result = $mysqli->query($sql);
+
+		if ($result->num_rows == 1) {
 			return true;
 		} else {
+			echo "log in failed";
 			return false;
 		}
 	}
 ?>
-<!-- <script src="js/drop.js"></script> -->
+
 <script src="js/gallery.js"></script>
 <script src="js/functions.js"></script>
 </body>

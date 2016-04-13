@@ -15,3 +15,19 @@
 <script type="text/javascript" src="js/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
+
+<?php 
+// $servername = "localhost";
+// $db = "webtop";
+// $username = "root";
+// $password = "root";
+// $port = 8889;
+
+// // Create connection
+// $mysqli = new mysqli("$servername:$port", $username, $password, $db);
+
+// // Check connection
+// if ($mysqli->connect_error) {
+//     die("Connection failed: " . $mysqli->connect_error);
+// }
+?>
