@@ -6,15 +6,16 @@ if (isset($_POST['image'])){
 	$edit = $_POST['image']['edit'];
 
 	if (!empty($imagesrc) && !empty($edit)){
+		$imagesrc = "../".$imagesrc;
 		echo "src: ".$imagesrc." edit: ".$edit;
 
 		// Create new image
 		$image = imagecreatefromjpeg($imagesrc);
+
 		// Edit image
-		switch($edit)
-		{
+		switch($edit) {
 			case "mirror":
-				imagefilter($image, IMG_FLIP_BOTH);
+				imagefilter($image, IMG_FLIP_BOTH, NULL);
 				break;
 
 			case "greyscale":
@@ -30,8 +31,10 @@ if (isset($_POST['image'])){
 			default:
 				echo "Edit ".$edit." not recognised";
 		}
+
 		// Save new image
-		imagejpeg($image, $imagesrc);	
+		imagejpeg($image, $imagesrc);
+
 		// Send success
 		echo "{success}";
 
