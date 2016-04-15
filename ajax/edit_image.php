@@ -24,11 +24,13 @@ if (isset($_POST['image'])){
 				break;
 
 			case "rotate_clockwise":
-				$editsuccess = imagerotate($source, 270, NULL);
+				$editsuccess = imagerotate($image, 270, 0);
 				break;
+
 			case "rotate_anticlockwise":
-				$editsuccess = imagerotate($source, 90, NULL);
+				$editsuccess = imagerotate($image, 90, 0);
 				break;
+
 			default:
 				echo "Edit ".$edit." not recognised";
 		}
