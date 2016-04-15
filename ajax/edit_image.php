@@ -8,7 +8,6 @@ if (isset($_POST['image'])){
 
 	if (!empty($imagesrc) && !empty($edit)){
 		$imagesrc = "../".$imagesrc;
-		// echo "src: ".$imagesrc." edit: ".$edit;
 
 		// Create new image
 		$image = imagecreatefromjpeg($imagesrc);
@@ -44,17 +43,18 @@ if (isset($_POST['image'])){
 			imagejpeg($image, $imagesrc);
 
 			// Send success
-			echo "{success}";
+			echo "{success: 1}";
 		} else {
-			echo "Edit fail: ".$edit." on ".$imagesrc;
+			echo "{[success: 0, message: 'Edit fail: $edit on $imagesrc'}";
 		}
 
+		// Free image memory
+		imagedestroy($image);
 	} else if (empty($imagesrc)) {
-		echo "missing src";
+		echo "{success: 0, message: 'missing image source'}";
 	} else if (empty($edit)) {
-		echo "missing edit";
+		echo "{success: 0, message: 'missing edit mode'}";
 	}
 }
-// imagedestroy($image);
-
+// 
 ?>

@@ -8,16 +8,7 @@ $(function() {
 		$(".fancybox").fancybox({
 			afterLoad   : function() {
 
-		        // $("<div class='fancy-overlay'>"+
-		        // 	"<img src='images/greyscale.png' onclick=\"alertMe()\">"+
-		        // 	"<img src='images/mirror.png'>"+
-		        // 	"<img src='images/rotate_clockwise.png'>"+
-		        // 	"<img src='images/rotate_anticlockwise.png'>"+
-		        // 	"</div>").appendTo(this.inner).click(function() {
-			       //      // $(document).toggleFullScreen();
-			       //      // alert("hallo");
-			       //  });
-			       //  
+				// Edit buttons
 			    $("<img class='fancy-overlay-edit' src='images/greyscale.png'>")
 			    	.appendTo(this.inner).click(function() {
 			        editImage($(this), 'greyscale');
@@ -45,12 +36,6 @@ $(function() {
 		    }
 
 		});
-	});
-
-	
-
-	$('.fancy-overlay a').click(function(event) {
-		alert("hallo");
 	});
 	
 	// Prevent default for dragging
@@ -100,7 +85,10 @@ function editImage(image, edit) {
 	$.ajax({
 		url: 'ajax/edit_image.php',
 		type: 'post',
-		data: {image: {src: srcImage, 'edit' : edit}}
+		data: {image: {src: srcImage, 'edit' : edit}},
+		success: function(result) {
+			alert("success");
+		}
 	});
 }
 
