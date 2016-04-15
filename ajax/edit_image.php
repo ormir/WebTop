@@ -9,13 +9,31 @@ if (isset($_POST['image'])){
 		echo "src: ".$imagesrc." edit: ".$edit;
 
 		// Create new image
-		
+		$image = imagecreatefromjpeg($imagesrc);
 		// Edit image
-		
+		switch($edit)
+		{
+			case "mirror":
+				imagefilter($image, IMG_FLIP_BOTH);
+				break;
+
+			case "greyscale":
+				imagefilter($image, IMG_FILTER_GRAYSCALE);
+				break;
+
+			case "rotate_clockwise":
+				$rotate = imgrotate($source, 270);
+				break;
+			case "rotate_anticlockwise":
+				$rotate = imgrotate($source, 90);
+				
+			default:
+				echo "Edit ".$edit." not recognised";
+		}
 		// Save new image
-		
+		imagejpeg($image, $imagesrc);	
 		// Send success
-		
+		echo "{success}";
 
 	} else if (empty($imagesrc)) {
 		echo "missing src";
@@ -23,4 +41,6 @@ if (isset($_POST['image'])){
 		echo "missing edit";
 	}
 }
+// imagedestroy($image);
+
 ?>
