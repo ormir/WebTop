@@ -27,7 +27,7 @@ if (isset($_POST['image'])){
 				break;
 			case "rotate_anticlockwise":
 				imagerotate($source, 90);
-				
+				break;
 			default:
 				echo "Edit ".$edit." not recognised";
 		}
