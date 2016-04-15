@@ -16,7 +16,7 @@ if (isset($_POST['image'])){
 		// Edit image
 		switch($edit) {
 			case "mirror":
-				$editsuccess = imagefilter($image, IMG_FLIP_BOTH, NULL);
+				$editsuccess = imageflip($image, IMG_FLIP_BOTH);
 				break;
 
 			case "greyscale":
