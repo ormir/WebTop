@@ -2,16 +2,24 @@
 header('Content-Type: application/json');
 
 if (isset($_POST['image'])){
-	imagesrc = $_POST['image']['src'];
-	if (isset($_POST['image']['src'])){
-		echo "src ".$_POST['image']['src'];
-	} else {
-		echo "missing src";
-	}
+	$imagesrc = $_POST['image']['src'];
+	$edit = $_POST['image']['edit'];
 
-	if (isset($_POST['image']['edit'])){
-		echo "edit ".$_POST['image']['edit'];
-	} else {
+	if (!empty($imagesrc) && !empty($edit)){
+		echo "src: ".$imagesrc." edit: ".$edit;
+
+		// Create new image
+		
+		// Edit image
+		
+		// Save new image
+		
+		// Send success
+		
+
+	} else if (empty($imagesrc)) {
+		echo "missing src";
+	} else if (empty($edit)) {
 		echo "missing edit";
 	}
 }
