@@ -207,12 +207,24 @@ body{
 	position: relative;
 }
 
+/* fancy box */
+
+.fancybox-nav {
+	top: initial;
+	bottom: 0;
+	height: 90%;
+}
+
 .fancybox-nav:link {
 	background: none;
 }
 
 .fancybox-close:link {
 	background-color: transparent;
+}
+
+.fancybox-image {
+	height: 80%;
 }
 
 .fancy-overlay {
@@ -222,11 +234,22 @@ body{
 	padding: 0 5%;
 	background-color: rgba(255, 255, 255, 0.7);
 	text-align: center;
+	z-index: 100000;
 }
 
 .fancy-overlay img {
 	padding: 1%;
 	max-width: 30px;
 	max-height: 30px;
+	
+}
+
+.fancy-overlay-edit {
+	left: 200px;
+	padding: 1%;
+	max-width: 30px;
+	max-height: 30px;
+	text-align: center;
 	z-index: 100000;
+	bottom: 0;
 }

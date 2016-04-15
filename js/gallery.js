@@ -1,13 +1,42 @@
 $(function() {
+
+	function alertMe(){
+		alert("greyscale");
+	}
+
 	$(document).ready(function() {
 		$(".fancybox").fancybox({
 			afterLoad   : function() {
-		        this.title="<div class='fancy-overlay'>"+
-		        	"<a href='#'><img src='images/greyscale.png'></a>"+
-		        	"<img src='images/mirror.png'>"+
-		        	"<img src='images/rotate_clockwise.png'>"+
-		        	"<img src='images/rotate_anticlockwise.png'>"+
-		        	"</div>";
+
+		        // $("<div class='fancy-overlay'>"+
+		        // 	"<img src='images/greyscale.png' onclick=\"alertMe()\">"+
+		        // 	"<img src='images/mirror.png'>"+
+		        // 	"<img src='images/rotate_clockwise.png'>"+
+		        // 	"<img src='images/rotate_anticlockwise.png'>"+
+		        // 	"</div>").appendTo(this.inner).click(function() {
+			       //      // $(document).toggleFullScreen();
+			       //      // alert("hallo");
+			       //  });
+			       //  
+			    $("<img class='fancy-overlay-edit' src='images/greyscale.png'>")
+			    	.appendTo(this.inner).click(function() {
+			        editImage($(this), 'greyscale');
+			    });
+
+			    $("<img class='fancy-overlay-edit' src='images/rotate_clockwise.png'>")
+			    	.appendTo(this.inner).click(function() {
+			        editImage($(this), 'rotate_clockwise');
+			    });
+
+			    $("<img class='fancy-overlay-edit' src='images/mirror.png'>")
+			    	.appendTo(this.inner).click(function() {
+			        editImage($(this), 'mirror');
+			    });
+
+			    $("<img class='fancy-overlay-edit' src='images/rotate_anticlockwise.png'>")
+			    	.appendTo(this.inner).click(function() {
+			        editImage($(this), 'rotate_anticlockwise');
+			    });
 		    },
 		    helpers : {
 		        title: {
@@ -17,6 +46,8 @@ $(function() {
 
 		});
 	});
+
+	
 
 	$('.fancy-overlay a').click(function(event) {
 		alert("hallo");
@@ -63,6 +94,15 @@ $(function() {
 	});
 
 });
+
+function editImage(image, edit) {
+	srcImage = image.siblings('.fancybox-image').attr("src");
+	$.ajax({
+		url: 'ajax/edit_image.php',
+		type: 'post',
+		data: {image: {src: srcImage, 'edit' : edit}}
+	});
+}
 
 function deleteGalleryImage(image) {
 	image = image.find('.thumbnail-content');
