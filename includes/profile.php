@@ -1,7 +1,15 @@
+<div>
+Hallo
+<?php
+$sql = "SELECT firstname, lastname, username, email FROM user WHERE username = '".$_SESSION['username']."'";
+echo $sql;
+?>
+</div>
+
 <?php
 // global $mysqli;
-	$sql = "SELECT firstname, lastname, username, email FROM user WHERE username = $_SESSION['username']";
-	echo $sql;
+	// $sql = "SELECT firstname, lastname, username, email FROM user WHERE username = $_SESSION['username']";
+	// echo $sql;
 	// $result = $mysqli->query($sql);
 
 	// if ($result->num_rows == 1) {

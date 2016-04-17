@@ -22,9 +22,9 @@ if (isset($_POST['submit-register'])) {
 	// print_r($_POST);
 	$sql = "INSERT INTO user (firstname, lastname, username, email, pwd, bild)".
 		" VALUES ('".$_POST['vorname']."', '".$_POST['nachname']."', '".$_POST['username']."', '".$_POST['email']."', '".md5($_POST['password'])."', NULL);";
-	echo $sql;
+	// echo $sql;
 	if ($mysqli->query($sql) === TRUE) {
-	    echo "New record created successfully";
+	    // echo "New record created successfully";
 	} else {
 	    echo "Error: " . $sql . "<br>" . $mysqli->error;
 	}
