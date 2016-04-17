@@ -99,10 +99,7 @@ $(function() {
 		$(this).siblings('button').hide();
 		$(this).hide();
 	});
-
-
 });
-
 
 
 /**
