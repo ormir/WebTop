@@ -35,6 +35,15 @@ body{
 	font-size:xx-small;
 }
 
+/* Editing profile */
+#profile_window input {
+	display: none;
+}
+
+.profile-editing {
+	display: none;
+}
+
 /*removing 'no file selceted'*/
 input[type='file'] {
   color: transparent;

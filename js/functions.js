@@ -44,14 +44,23 @@ $(function() {
 	    	location.reload();
 	    });
 
-	$('.profile_edit')
-		.click(
-			function(event){
-				$(this).html("<input type='text' placeholder='"+$(this).html()+"'/>");
-	
-			}
-		);
+	$('.profile_edit') .click(
+		function(event){
+			$(this).hide();
+			mSybling = $(this).siblings('input');
+			mSybling.show();
+			mSybling.attr('value', $(this).html());
 
+			// Show edit buttons
+			$('.profile-editing').show();
+		}
+	);
+
+	$('#profile-cancel').click(function(event) {
+		$(this).siblings().find('.profile_edit').show();
+		// TODO Clear input value on cancel
+		$(this).siblings().find('input').hide();
+	});
 });
 
 /**
