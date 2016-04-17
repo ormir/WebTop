@@ -7,7 +7,7 @@ body{
 	background-repeat: no repeat;
 }
 
-#login{
+#login, #register-top{
 	background-color: #34495e;
     height: 270px;
     text-align: center;
@@ -47,18 +47,27 @@ input[type='file'] {
 	border-width: 1px;
 	position:absolute;
 	margin-left: 550px;
-	margin-top: 80px;
+	margin-top: 60px;
 }
 
 #upload-reg{
 	position: absolute;
 	margin-left: 385px;
-	margin-top: 170px;
+	margin-top: 150px;
 
+}
+
+#register-top{
+	height:300px;
 }
 
 #register{
 	margin-top: 120px;
+}
+
+#register-icon{
+	height:80px;
+	padding:5px;
 }
 
 #taskleiste{

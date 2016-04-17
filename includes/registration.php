@@ -1,4 +1,4 @@
-<div id = "login">
+<div id = "register-top">
 	<img id="register-icon" src="images/register.png">
 	<div id = "preview"></div>
 	<div id="upload-reg">
