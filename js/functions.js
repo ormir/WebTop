@@ -60,17 +60,44 @@ $(function() {
 		$(this).siblings().find('.profile_edit').show();
 		// TODO Clear input value on cancel
 		$(this).siblings().find('input').hide();
+		$(this).siblings('button').hide();
+		$(this).hide();
 	});
 
+	// Save profile changes
 	$('#profile-save').click(function(event){
 		var inputarr = $(this).siblings().find('input');
-		$.each(inputarr, function(index, el) {
-			console.log(el.attr('value'));
+		var changesObj = {};
+
+		// Get changed values
+		$.each(inputarr, function(index, element) {
+			var inputVal = $(element).val();
+			if (inputVal != "") {
+				changesObj[$(element).attr('data-type')] = inputVal;
+
+				$(element).siblings('.profile_edit').html(inputVal);
+				$(element).siblings('.profile_edit').show();
+				$(element).hide();
+			}
+
+
 		});
-		$('profile_edit').attr(value)
 
-		$.ajax()
+		// Send changed values
+		$.ajax({
+			url: 'ajax/edit_profile.php',
+			type: 'post',
+			data: {"changes": changesObj},
+			success: function (responce) {
+				if (responce.success == 1){
+					// Show saved values
+				}
+			}
 
+		});
+
+		$(this).siblings('button').hide();
+		$(this).hide();
 	});
 
 

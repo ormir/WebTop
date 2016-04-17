@@ -17,11 +17,6 @@ if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-function getMySQLi() {
-	global $mysqli;
-	return $mysqli;
-}
-
 // Register User
 if (isset($_POST['submit-register'])) {
 	// print_r($_POST);
