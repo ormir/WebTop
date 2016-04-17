@@ -62,20 +62,19 @@ $(function() {
 		$(this).siblings().find('input').hide();
 	});
 
-	$('#profile-save').click(function(event){
-		var inputarr = $(this).siblings().find('input');
-		$.each(inputarr, function(index, el) {
-			console.log(el.attr('value'));
-		});
-		$('profile_edit').attr(value)
+	// $('#profile-save').click(function(event){
+	// 	var inputarr = $(this).siblings().find('input');
+	// 	$.each(inputarr, function(index, el) {
+	// 		console.log(el.attr('value'));
+	// 	});
+	// 	$('profile_edit').attr(value)
 
-		$.ajax()
+	// 	$.ajax()
 
-	});
+	// });
 
 
 });
-
 
 
 /**
