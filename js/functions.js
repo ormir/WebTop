@@ -31,6 +31,19 @@ $(function() {
 	    	$('<form method="post" action="index.php"><input name="register"></form>').submit();
 	    });
 
+	$('#register-icon')
+	    .hover(
+	    	function(eventIn) {
+		    	$(this).attr('src', 'images/logo.png');
+	    	},
+	    	function (eventOut) {
+	    		$(this).attr('src', 'images/register.png');
+	    	}
+	    )
+	    .click(function(event) {
+	    	location.reload();
+	    });
+
 });
 
 /**

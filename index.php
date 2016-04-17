@@ -9,11 +9,26 @@ $password = "root";
 $port = 8889;
 
 // Create connection
+global $mysqli;
 $mysqli = new mysqli("$servername:$port", $username, $password, $db);
 
 // Check connection
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
+}
+
+// Register User
+if (isset($_POST['submit-register'])) {
+	// print_r($_POST);
+	$sql = "INSERT INTO user (firstname, lastname, username, email, pwd, bild)".
+		" VALUES ('".$_POST['vorname']."', '".$_POST['nachname']."', '".$_POST['username']."', '".$_POST['email']."', '".md5($_POST['password'])."', NULL);";
+	echo $sql;
+	if ($mysqli->query($sql) === TRUE) {
+	    echo "New record created successfully";
+	} else {
+	    echo "Error: " . $sql . "<br>" . $mysqli->error;
+	}
+
 }
 
 // Check for remember user
@@ -39,13 +54,10 @@ if (isset($_POST["login"]) && authenticateuser($_POST["username"], $_POST["passw
 	} else if ($login) {
 		include "webtop.php";
 	} else if (isset($_POST["register"])) {
-		// echo "Hallo register";
 		include "includes/registration.php";
 	} else {
 		include "login.php";
 	}
-
-	var_dump($_POST);
 
 	function authenticateuser($user, $password){
 		global $mysqli;
