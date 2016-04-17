@@ -57,10 +57,4 @@ if (isset($_POST['image'])){
 		echo "{success: 0, message: 'missing edit mode'}";
 	}
 }
-<<<<<<< Updated upstream
-// 
-=======
-
-
->>>>>>> Stashed changes
 ?>
