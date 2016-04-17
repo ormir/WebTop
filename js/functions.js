@@ -44,6 +44,14 @@ $(function() {
 	    	location.reload();
 	    });
 
+	$('.profile_edit')
+		.click(
+			function(event){
+				$(this).html("<input type='text' placeholder='"+$(this).html()+"'/>");
+	
+			}
+		);
+
 });
 
 /**
