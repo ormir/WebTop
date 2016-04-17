@@ -17,6 +17,20 @@ $(function() {
     $('#taskleiste-icon').click(function(event) {
     	$('#taskmenu').toggle();
     });
+
+    $('#login-icon')
+	    .hover(
+	    	function(eventIn) {
+		    	$(this).attr('src', 'images/register.png');
+	    	},
+	    	function (eventOut) {
+	    		$(this).attr('src', 'images/logo.png');
+	    	}
+	    )
+	    .click(function(event) {
+	    	$('<form method="post" action="index.php"><input name="register"></form>').submit();
+	    });
+
 });
 
 /**

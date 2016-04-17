@@ -7,7 +7,6 @@ body{
 	background-repeat: no repeat;
 }
 
-
 #login{
 	background-color: #34495e;
     height: 270px;
@@ -20,6 +19,7 @@ body{
     right: 0;
     margin: auto;
 }
+
 #login img{
 	padding: 5px;
 	height: 100px;
@@ -56,7 +56,6 @@ input[type='file'] {
 	height: 50px;
 	position: fixed;
 	bottom: 0;
-/*	background-color: #E8C60C;*/
 	background-color: #34495e;
 }
 

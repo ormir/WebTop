@@ -38,20 +38,18 @@ if (isset($_POST["login"]) && authenticateuser($_POST["username"], $_POST["passw
 		include "webtop.php";
 	} else if ($login) {
 		include "webtop.php";
-	} else {
-		// include "login.php";
+	} else if (isset($_POST["register"])) {
+		// echo "Hallo register";
 		include "includes/registration.php";
+	} else {
+		include "login.php";
 	}
+
+	var_dump($_POST);
 
 	function authenticateuser($user, $password){
 		global $mysqli;
-
-		if ($mysqli->connect_error) {
-		    die("Connection failed: " . $mysqli->connect_error);
-		}
-
 		$sql = "SELECT username FROM user WHERE username = '$user' AND pwd = '".md5($password)."'";
-
 		$result = $mysqli->query($sql);
 
 		if ($result->num_rows == 1) {
