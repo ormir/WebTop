@@ -5,6 +5,7 @@
 		<p onclick="openWindow(fhtw_window)">Technikum Wien</p>
 		<p onclick="openWindow(phpinfo_window)">PHP</p>
 		<p onclick="openWindow(gallery_window)">Gallery</p>
+		<p onclick="openWindow(profile)">Edit Profile</p>
 	</div>
 </div>
 <div id="taskleiste">

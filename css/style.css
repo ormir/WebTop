@@ -22,11 +22,16 @@ body{
 
 #login img{
 	padding: 5px;
-	height: 100px;
+	height: 90px;
 }
 
 #logintext{
 	color:white;
+}
+
+#forgotten{
+	color:white;
+	font-size:xx-small;
 }
 
 /*removing 'no file selceted'*/
@@ -49,6 +54,10 @@ input[type='file'] {
 	margin-left: 385px;
 	margin-top: 170px;
 
+}
+
+#register{
+	margin-top: 120px;
 }
 
 #taskleiste{

@@ -34,4 +34,11 @@
 	</div>
 </div>
 
+<div id="profile" class="window draggable">
+	<img class="img-close" src="images/close.png">
+	<div class="windowcontent">
+		<?php include 'includes/profile.php'; ?>
+	</div>
+</div>
+
 <?php include "includes/taskleiste.php"; ?>
