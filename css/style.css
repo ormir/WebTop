@@ -39,6 +39,9 @@ body{
 input[type='file'] {
   color: transparent;
 }
+#filetoUpload{
+	width:80px;
+}
 
 #preview{
 	width:80px;
@@ -54,7 +57,10 @@ input[type='file'] {
 	position: absolute;
 	margin-left: 385px;
 	margin-top: 150px;
+}
 
+#up-button{
+	margin-left: 160px;
 }
 
 #register-top{
