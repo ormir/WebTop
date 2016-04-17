@@ -41,6 +41,7 @@ if (isset($_POST['image'])){
 		if ($editsuccess) {
 			// Save new image
 			imagejpeg($image, $imagesrc);
+			
 
 			// Send success
 			echo "{success: 1}";
@@ -56,5 +57,10 @@ if (isset($_POST['image'])){
 		echo "{success: 0, message: 'missing edit mode'}";
 	}
 }
+<<<<<<< Updated upstream
 // 
+=======
+
+
+>>>>>>> Stashed changes
 ?>

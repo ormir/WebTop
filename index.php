@@ -39,7 +39,8 @@ if (isset($_POST["login"]) && authenticateuser($_POST["username"], $_POST["passw
 	} else if ($login) {
 		include "webtop.php";
 	} else {
-		include "login.php";
+		// include "login.php";
+		include "includes/registration.php";
 	}
 
 	function authenticateuser($user, $password){
