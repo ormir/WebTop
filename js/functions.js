@@ -49,7 +49,7 @@ $(function() {
 			$(this).hide();
 			mSybling = $(this).siblings('input');
 			mSybling.show();
-			mSybling.attr('value', $(this).html());
+			mSybling.val($(this).html());
 
 			// Show edit buttons
 			$('.profile-editing').show();
@@ -59,6 +59,7 @@ $(function() {
 	$('#profile-cancel').click(function(event) {
 		$(this).siblings().find('.profile_edit').show();
 		// TODO Clear input value on cancel
+		$(this).siblings().find('input').val("");
 		$(this).siblings().find('input').hide();
 		$(this).siblings('button').hide();
 		$(this).hide();
@@ -79,8 +80,6 @@ $(function() {
 				$(element).siblings('.profile_edit').show();
 				$(element).hide();
 			}
-
-
 		});
 
 		// Send changed values
@@ -93,7 +92,6 @@ $(function() {
 					// Show saved values
 				}
 			}
-
 		});
 
 		$(this).siblings('button').hide();
