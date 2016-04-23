@@ -98,7 +98,7 @@ img#login-icon{
 	border-style: solid;
 	border-width: 1px;
 	margin-top: 60px;
-	margin-left: 60px;
+	margin-left: 50px;
 	position: absolute;
 }
 
@@ -106,7 +106,7 @@ img#login-icon{
 	width:300px;
 	position: absolute;
 /*	margin-top: 30px;*/
-	margin-left: 190px;
+	margin-left: 170px;
 }
 
 #lucida{
