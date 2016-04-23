@@ -31,6 +31,24 @@ if (isset($_POST['submit-register'])) {
 
 }
 
+// Recover Pass
+if (isset($_POST['recover'])) {
+	$sql = "SELECT email FROM user WHERE username = '".$_POST['username']."'";
+	// echo $sql;
+
+	$result = $mysqli->query($sql);
+	if ($result->num_rows == 1) {
+		$row = $result->fetch_assoc();
+		echo "Username '".$_POST['username']."' has email '".$row['email']."'";
+
+		
+
+	} else {
+		echo "Username '".$_POST['username']."' not found";
+	}
+
+}
+
 // Check for remember user
 if (isset($_POST["login"]) && authenticateuser($_POST["username"], $_POST["password"])){
 	if (isset($_POST["remember"]) && $_POST["remember"] == "yes") {
