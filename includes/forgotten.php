@@ -5,5 +5,4 @@
 		<input type="text" name="username" placeholder="Username" autofocus required><br />
 		<button type="submit" name="recover">Send Password</button>
 	</form>
-
 </div>
