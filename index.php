@@ -43,10 +43,12 @@ if (isset($_POST['recover'])) {
 		$newpass = randomPassword();
 		// echo "New Password: ".$newpass;
 		$sql = "UPDATE user SET pwd = '".md5($newpass)."' WHERE username ='".$_POST['username']."'";
-		echo $sql;
-
+		// echo $sql;
+		echo $newpass;
 		if($mysqli->query($sql)=== TRUE){
-			echo"Successful woo";
+			// echo"Successful woo";
+			$msg = "Your new password is ".$newpass;
+			mail($row['email'], "New Password", $msg);
 		}else{
 			echo "Fail:".$mysqli->error;
 		}

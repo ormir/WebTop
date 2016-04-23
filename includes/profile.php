@@ -22,14 +22,8 @@
 					<input data-type=lastname type='text'/>
 				</span>
 			</h3>
-<<<<<<< Updated upstream
 			<h3>
 				<span id='prousername'><? echo $row["username"]; ?></span>
-=======
-			<h3 id="lucida">
-				<span class='profile_edit' id='prousername'><? echo $row["username"]; ?></span>
-				<input data-type=username type='text'/>
->>>>>>> Stashed changes
 			</h3>
 			<h3 id="lucida">
 				<span class='profile_edit' id='proemail'><? echo $row["email"]; ?></span>
