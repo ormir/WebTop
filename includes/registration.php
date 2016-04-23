@@ -6,7 +6,8 @@
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 		<input type="file" title=" " id="fileToUpload"><br/>
     	<input id="up-button" type="submit" value="Upload Image" name="submit"><br/>
-    </div id="register">
+    </div>
+<div id="register">
 	<form role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post"><br/>
 		<h2 id="logintext">Register</h2>
 		<input type="text" name="vorname" placeholder="Vorname" autofocus required/><br/>

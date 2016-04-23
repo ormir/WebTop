@@ -8,8 +8,11 @@
 		$row = $result->fetch_assoc(); ?>
 
 		<div id="profile-picture">Profile Piiiic</div>
+		<input type="file" title=" " id="fileToUpload"><br/>
+    	<input id="up-button" type="submit" value="Upload Image" name="submit"><br/>
+		
 		<div id="personalinfo">
-			<h3>
+			<h3 id="lucida">
 				<span>
 					<span class='profile_edit' id='profirstname'><? echo $row["firstname"]; ?></span>
 					<input data-type=firstname type='text'/>
@@ -19,10 +22,16 @@
 					<input data-type=lastname type='text'/>
 				</span>
 			</h3>
+<<<<<<< Updated upstream
 			<h3>
 				<span id='prousername'><? echo $row["username"]; ?></span>
+=======
+			<h3 id="lucida">
+				<span class='profile_edit' id='prousername'><? echo $row["username"]; ?></span>
+				<input data-type=username type='text'/>
+>>>>>>> Stashed changes
 			</h3>
-			<h3>
+			<h3 id="lucida">
 				<span class='profile_edit' id='proemail'><? echo $row["email"]; ?></span>
 				<input data-type=email type='text'/>
 			</h3>

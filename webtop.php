@@ -44,4 +44,10 @@
 	</div>
 </div>
 
+<!--   <script>
+  $(function() {
+    $( ".window" ).resizable();
+  });
+  </script> -->
+
 <?php include "includes/taskleiste.php"; ?>
