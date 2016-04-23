@@ -56,9 +56,13 @@ $(function() {
 		}
 	);
 
+	$('#forgotten').click(function(event) {
+    	$('<form method="post" action="index.php"><input name="forgotten"></form>').submit();
+	});
+
 	$('#profile-cancel').click(function(event) {
 		$(this).siblings().find('.profile_edit').show();
-		// TODO Clear input value on cancel
+		// Clear input value on cancel
 		$(this).siblings().find('input').val("");
 		$(this).siblings().find('input').hide();
 		$(this).siblings('button').hide();

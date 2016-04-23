@@ -55,7 +55,9 @@ if (isset($_POST["login"]) && authenticateuser($_POST["username"], $_POST["passw
 		include "webtop.php";
 	} else if (isset($_POST["register"])) {
 		include "includes/registration.php";
-	} else {
+	} else if (isset($_POST["forgotten"])) {
+		include "includes/forgotten.php";
+ 	} else {
 		include "login.php";
 	}
 
