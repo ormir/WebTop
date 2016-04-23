@@ -39,15 +39,22 @@ if (isset($_POST['recover'])) {
 	$result = $mysqli->query($sql);
 	if ($result->num_rows == 1) {
 		$row = $result->fetch_assoc();
-		echo "Username '".$_POST['username']."' has email '".$row['email']."'";
+		// echo "Username '".$_POST['username']."' has email '".$row['email']."'";
+		$newpass = randomPassword();
+		// echo "New Password: ".$newpass;
+		$sql = "UPDATE user SET pwd = '".md5($newpass)."' WHERE username ='".$_POST['username']."'";
+		echo $sql;
 
-		
-
+		if($mysqli->query($sql)=== TRUE){
+			echo"Successful woo";
+		}else{
+			echo "Fail:".$mysqli->error;
+		}
 	} else {
 		echo "Username '".$_POST['username']."' not found";
 	}
-
 }
+
 
 // Check for remember user
 if (isset($_POST["login"]) && authenticateuser($_POST["username"], $_POST["password"])){
@@ -91,7 +98,20 @@ if (isset($_POST["login"]) && authenticateuser($_POST["username"], $_POST["passw
 			return false;
 		}
 	}
+
+function randomPassword() {
+    $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
+    $pass = array(); //remember to declare $pass as an array
+    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+    for ($i = 0; $i < 8; $i++) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+    return implode($pass); //turn the array into a string
+}
+
 ?>
+
 
 <script src="js/gallery.js"></script>
 <script src="js/functions.js"></script>
