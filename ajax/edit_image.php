@@ -41,7 +41,6 @@ if (isset($_POST['image'])){
 		if ($editsuccess) {
 			// Save new image
 			imagejpeg($image, $imagesrc);
-			
 
 			// Send success
 			echo "{success: 1}";

@@ -2,13 +2,10 @@
 <?php
 	global $mysqli;
 	$sql = "SELECT firstname, lastname, username, email FROM user WHERE username = '".$_SESSION['username']."'";
-
 	$result = $mysqli->query($sql);
 
 	if ($result->num_rows == 1) {
-		$row = $result->fetch_assoc();
-
-		?>
+		$row = $result->fetch_assoc(); ?>
 
 		<div id="profile-picture">Profile Piiiic</div>
 		<div id="personalinfo">
@@ -23,8 +20,7 @@
 				</span>
 			</h3>
 			<h3>
-				<span class='profile_edit' id='prousername'><? echo $row["username"]; ?></span>
-				<input data-type=username type='text'/>
+				<span id='prousername'><? echo $row["username"]; ?></span>
 			</h3>
 			<h3>
 				<span class='profile_edit' id='proemail'><? echo $row["email"]; ?></span>
@@ -34,5 +30,5 @@
 			<button id='profile-save' class='profile-editing'>save</button>
 			<button id='profile-cancel' class='profile-editing'>cancel</button>
 		</div>
-	<?php } ?>
+<?php } ?>
 </div>

@@ -22,11 +22,14 @@ if (isset($_POST['changes'])){
 
 	// Organise changes for query
 	foreach ($_POST['changes'] as $colum => $value) {
-		$set = $set.$colum."='".$value."' ";
+		$set = $set.$colum."='".$value."', ";
 	}
 
-	$sql = "UPDATE user SET ".$set."WHERE username = '".$_SESSION['username']."'";
-	// echo $sql;
+	// Remove last comma
+	$set = substr($set, 0, -2);
+
+	$sql = "UPDATE user SET ".$set." WHERE username = '".$_SESSION['username']."'";
+	// echo $sql."||";
 
 	if ($mysqli->query($sql) === TRUE) {
 	    echo '{"success": 1}';
