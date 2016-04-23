@@ -31,9 +31,6 @@ if (isset($_POST['element'])){
 			echo "Element ".$element['id']." couldn't be inserted";
 		}
 	}
-
-	// $_SESSION['elements'][$element['id']] = ['top' => $element['top'], 'left' => $element['left']];
-	// echo json_encode($_SESSION['elements']);
 }
 
 
