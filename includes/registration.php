@@ -1,15 +1,17 @@
 <div id = "register-top">
 	<img id="register-icon" src="images/register.png">
-	<div id = "preview"></div>
-	<div id="upload-reg">
-		<!--removing the no file selected text and adjusting space-->
-		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<!-- <div id = "preview"></div>
+	 <div id="upload-reg">
+		removing the no file selected text and adjusting space -->
+		<!-- &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
 		<input type="file" title=" " id="fileToUpload"><br/>
     	<input id="up-button" type="submit" value="Upload Image" name="submit"><br/>
-    </div>
+    </div> -->
 <div id="register">
-	<form role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post"><br/>
+	<form role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data"><br/>
 		<h2 id="logintext">Register</h2>
+		<input type="hidden" name="MAX_FILE_SIZE" value="2097152">
+		<input type="file" name="register_pic" id="fileToUpload"><br/>
 		<input type="text" name="vorname" placeholder="Vorname" autofocus required/><br/>
 		<input type="text" name="nachname" placeholder="Nachname" required/><br/>			
 		<input type="text" name="username" placeholder="Username" required/><br/>

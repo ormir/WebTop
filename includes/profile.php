@@ -1,13 +1,13 @@
 <div>
 <?php
 	global $mysqli;
-	$sql = "SELECT firstname, lastname, username, email FROM user WHERE username = '".$_SESSION['username']."'";
+	$sql = "SELECT firstname, lastname, username, email, pic FROM user WHERE username = '".$_SESSION['username']."'";
 	$result = $mysqli->query($sql);
 
 	if ($result->num_rows == 1) {
 		$row = $result->fetch_assoc(); ?>
 
-		<div id="profile-picture">Profile Piiiic</div>
+		<div id="profile-picture"><img src='upload/<?php echo  $row['pic']; ?>'></div>
 		<input type="file" title=" " id="fileToUpload"><br/>
     	<input id="up-button" type="submit" value="Upload Image" name="submit"><br/>
 		

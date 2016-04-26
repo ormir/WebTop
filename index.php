@@ -7,11 +7,52 @@ include "includes/db.php";
 // Register User
 if (isset($_POST['submit-register'])) {
 	// print_r($_POST);
-	$sql = "INSERT INTO user (firstname, lastname, username, email, pwd, bild)".
-		" VALUES ('".$_POST['vorname']."', '".$_POST['nachname']."', '".$_POST['username']."', '".$_POST['email']."', '".md5($_POST['password'])."', NULL);";
-	// echo $sql;
+	$sql = "INSERT INTO user (firstname, lastname, username, email, pwd, pic)".
+		" VALUES ('".$_POST['vorname']."', '".$_POST['nachname']."', '".$_POST['username']."', '".$_POST['email']."', '".md5($_POST['password']);
+	
+	// Pic upload
+	$fileupload = array();
+
+	if (isset($_FILES['register_pic']) && 
+		$_FILES['register_pic']['error'] == 0 &&
+		$_FILES['register_pic']['size']>0 &&
+		$_FILES['register_pic']['tmp_name'] &&
+		is_uploaded_file($_FILES['register_pic']['tmp_name'])) { 
+                 
+	   $fileupload=$_FILES['register_pic'];
+	   $tmp_explode = explode('.', $fileupload['name']);
+	   $file_ext = strtolower(end($tmp_explode));
+	   $fileupload['new_name'] = md5($_POST['username']+time()).".".$file_ext;
+	   $fileupload['new_source'] = "./upload/".$fileupload['new_name'];
+	} else {
+		echo "Register: No file <br>";
+		print_r($_FILES);
+		echo "<br>";
+		print_r($_POST);
+	}
+
+	// Add image to query
+	if (empty($fileupload)) {
+		$sql = $sql."', NULL);";
+	} else {
+		$sql = $sql."', '".$fileupload['new_name']."');";
+	}
+
 	if ($mysqli->query($sql) === TRUE) {
-	    // echo "New record created successfully";
+	    if (!empty($fileupload)) {			
+
+	    	// Resize image
+			$image = imagecreatefromjpeg($fileupload['tmp_name']);
+			$thumbnail = imagescale($image, 102, 102);
+			if(!empty($thumbnail)) {
+				imagejpeg($thumbnail, $fileupload['new_source']);
+			} else {
+				echo "Thumbnail fail";
+			}
+
+			imagedestroy($image);
+			imagedestroy($thumbnail);
+		}
 	} else {
 	    echo "Error: " . $sql . "<br>" . $mysqli->error;
 	}
@@ -26,14 +67,11 @@ if (isset($_POST['recover'])) {
 	$result = $mysqli->query($sql);
 	if ($result->num_rows == 1) {
 		$row = $result->fetch_assoc();
-		// echo "Username '".$_POST['username']."' has email '".$row['email']."'";
 		$newpass = randomPassword();
-		// echo "New Password: ".$newpass;
 		$sql = "UPDATE user SET pwd = '".md5($newpass)."' WHERE username ='".$_POST['username']."'";
-		// echo $sql;
+
 		echo $newpass;
 		if($mysqli->query($sql)=== TRUE){
-			// echo"Successful woo";
 			$msg = "Your new password is ".$newpass;
 			mail($row['email'], "New Password", $msg);
 		}else{
