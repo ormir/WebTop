@@ -1,14 +1,9 @@
 <?php 
 session_start();
 header('Content-Type: application/json');
+include "../includes/db.php";
 
-if (isset($_POST['elementid'])) {
-	include "../includes/db.php";
-	$sql = "UPDATE user_app SET status = 0 WHERE id="
-		."(SELECT id FROM apps WHERE name = '".$_POST['elementid']."')";
-
-	if($mysqli->query($sql) !== TRUE){
-		echo "Element ".$element['id']." couldn't be deleted";
-	}
-}
+if (isset($_POST['elementid']) &&
+	!(new WebtopDB)->deletePosition($_POST['elementid'], $_SESSION['username']))
+	echo "Element ".$element['id']." couldn't be deleted";
 ?>

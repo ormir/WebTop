@@ -12,10 +12,10 @@
 				if($entry != '.' && $entry != '..' && $entry != '.DS_Store'){
 
 					echo "<div class='gallery-thumbnail'>".
-					"<img class='thumbnail-close' src='images/delete.png'>".
-					"<a class='fancybox' rel='group' href='upload/$entry'>".
-					"<img class='thumbnail-content' src='upload/$entry' alt='' />".
-					"</a></div>"; 
+						"<img class='thumbnail-close' src='images/delete.png'>".
+						"<a class='fancybox' rel='group' href='upload/$entry'>".
+						"<img class='thumbnail-content' src='upload/$entry' alt='' />".
+						"</a></div>"; 
 				}
 			}
 		?>

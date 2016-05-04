@@ -1,17 +1,17 @@
 <?php 
 session_start();
-$login = false;
 
 include "includes/db.php";
 
+$login = false;
+$db = new WebtopDB();
+
 // Register User
 if (isset($_POST['submit-register'])) {
-	// print_r($_POST);
-	$sql = "INSERT INTO user (firstname, lastname, username, email, pwd, pic)".
-		" VALUES ('".$_POST['vorname']."', '".$_POST['nachname']."', '".$_POST['username']."', '".$_POST['email']."', '".md5($_POST['password']);
 	
 	// Pic upload
 	$fileupload = array();
+	$fileupload['new_name'] = 'NULL';
 
 	if (isset($_FILES['register_pic']) && 
 		$_FILES['register_pic']['error'] == 0 &&
@@ -31,20 +31,14 @@ if (isset($_POST['submit-register'])) {
 		print_r($_POST);
 	}
 
-	// Add image to query
-	if (empty($fileupload)) {
-		$sql = $sql."', NULL);";
-	} else {
-		$sql = $sql."', '".$fileupload['new_name']."');";
-	}
-
-	if ($mysqli->query($sql) === TRUE) {
+	if ($db->registerUser($_POST['vorname'], $_POST['nachname'], $_POST['username'], 
+			$_POST['email'], $_POST['password'], $fileupload['new_name'])){
 	    if (!empty($fileupload)) {			
 
 	    	// Resize image
 			$image = imagecreatefromjpeg($fileupload['tmp_name']);
 			$thumbnail = imagescale($image, 102, 102);
-			if(!empty($thumbnail)) {
+			if (!empty($thumbnail)) {
 				imagejpeg($thumbnail, $fileupload['new_source']);
 			} else {
 				echo "Thumbnail fail";
@@ -53,41 +47,32 @@ if (isset($_POST['submit-register'])) {
 			imagedestroy($image);
 			imagedestroy($thumbnail);
 		}
-	} else {
-	    echo "Error: " . $sql . "<br>" . $mysqli->error;
-	}
-
+	} else  echo "User registration failed";
 }
 
 // Recover Pass
 if (isset($_POST['recover'])) {
-	$sql = "SELECT email FROM user WHERE username = '".$_POST['username']."'";
-	// echo $sql;
+	$email = $db->getUserEmail($_POST['username']);
+	if ($email) {
+		$newpass = $db->resetPassword($_POST['username']);
 
-	$result = $mysqli->query($sql);
-	if ($result->num_rows == 1) {
-		$row = $result->fetch_assoc();
-		$newpass = randomPassword();
-		$sql = "UPDATE user SET pwd = '".md5($newpass)."' WHERE username ='".$_POST['username']."'";
-
-		echo $newpass;
-		if($mysqli->query($sql)=== TRUE){
+		if ($newpass) {
 			$msg = "Your new password is ".$newpass;
-			mail($row['email'], "New Password", $msg);
-		}else{
-			echo "Fail:".$mysqli->error;
-		}
-	} else {
-		echo "Username '".$_POST['username']."' not found";
-	}
+			mail($email, "New Password", $msg);
+		} else echo 'Fail: update new password';
+
+	} else echo "Username '".$_POST['username']."' not found";
 }
 
 
 // Check for remember user
-if (isset($_POST["login"]) && authenticateuser($_POST["username"], $_POST["password"])){
+if (isset($_POST["login"]) && 
+	$db->authenticateUser($_POST["username"], $_POST["password"])){
+
 	if (isset($_POST["remember"]) && $_POST["remember"] == "yes") {
 		setcookie("username", $_POST["username"], time() + (86400 * 30));
 	}
+
 	$login = true;
 	$_SESSION["username"] = $_POST["username"];
 } else if (isset($_COOKIE["username"])) {
@@ -100,42 +85,18 @@ if (isset($_POST["login"]) && authenticateuser($_POST["username"], $_POST["passw
 </head>
 <body>
 <?php
-	
-	if (isset($_SESSION["username"])) {
-		include "webtop.php";
-	} else if ($login) {
-		include "webtop.php";
-	} else if (isset($_POST["register"])) {
-		include "includes/registration.php";
-	} else if (isset($_POST["forgotten"])) {
-		include "includes/forgotten.php";
- 	} else {
-		include "login.php";
-	}
 
-	function authenticateuser($user, $password){
-		global $mysqli;
-		$sql = "SELECT username FROM user WHERE username = '$user' AND pwd = '".md5($password)."'";
-		$result = $mysqli->query($sql);
-
-		if ($result->num_rows == 1) {
-			return true;
-		} else {
-			echo "log in failed";
-			return false;
-		}
-	}
-
-	function randomPassword() {
-	    $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
-	    $pass = array(); //remember to declare $pass as an array
-	    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
-	    for ($i = 0; $i < 8; $i++) {
-	        $n = rand(0, $alphaLength);
-	        $pass[] = $alphabet[$n];
-	    }
-	    return implode($pass); //turn the array into a string
-	}
+if (isset($_SESSION["username"])) {
+	include "webtop.php";
+} else if ($login) {
+	include "webtop.php";
+} else if (isset($_POST["register"])) {
+	include "includes/registration.php";
+} else if (isset($_POST["forgotten"])) {
+	include "includes/forgotten.php";
+} else {
+	include "login.php";
+}
 
 ?>
 

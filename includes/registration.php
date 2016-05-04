@@ -1,12 +1,5 @@
 <div id = "register-top">
 	<img id="register-icon" src="images/register.png">
-	<!-- <div id = "preview"></div>
-	 <div id="upload-reg">
-		removing the no file selected text and adjusting space -->
-		<!-- &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-		<input type="file" title=" " id="fileToUpload"><br/>
-    	<input id="up-button" type="submit" value="Upload Image" name="submit"><br/>
-    </div> -->
 <div id="register">
 	<form role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data"><br/>
 		<h2 id="logintext">Register</h2>
