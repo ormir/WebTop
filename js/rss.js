@@ -9,7 +9,8 @@ $(function() {
 	.done(function(elementList) {
 		// console.log(elementList);
 		$.each(elementList, function(index, val) {
-			addToMyRss(val.id, val.title, val.description, val.link, val.date);
+			// addToMyRss(val.id, val.title, val.description, val.link, val.date);
+			addToMyRss(val);
 		});
 	});
 	
@@ -26,6 +27,17 @@ $(function() {
 				"date": $("#addRssDate").val(), 
 				"description": $("#addRssDesctiption").val()
 			}},
+		success: function (responce) {
+				if (responce.success == 1){
+					addToMyRss(responce.rss);
+					$("#addRssTitle").val("");
+					$("#addRssLink").val("");
+					$("#addRssDate").val("");
+					$("#addRssDesctiption").val("");
+				} else {
+					console.log(responce.sql);
+				}
+			}
 		});
 	});
 
@@ -120,13 +132,7 @@ $(function() {
 		});
 	});
 
-	function addToMyRss (id, title, description, link, date) {
-		var rssEl = {
-					"id": id,
-					"title" : title, 
-					"description" : description,
-					"link" : link,
-					"date" : date};
+	function addToMyRss (rssEl) {
 		$.get('template/rss.template.html', function(data) {
 			var dataFilter = $(data).filter('#template');
 			var dataHtml = dataFilter.html();

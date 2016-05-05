@@ -139,10 +139,20 @@ class WebtopDB {
 	}
 
 	public function addRss($title, $link, $description, $date) {
-		$sql = "INSERT INTO rss (title, link, description, date)".
+		$sql1 = "INSERT INTO rss (title, link, description, date)".
 			" VALUES ('".$title."', '".$link."', '".$description."', STR_TO_DATE('".$date."','%d.%m.%Y %H:%i:%s'));";
 
-		return $this->mysqli->query($sql) === TRUE;
+		$sql2 = "select * from rss where title = '".$title."' and link = '".$link."';";
+
+		
+
+		if ($this->mysqli->query($sql1) === true) {
+			$result = $this->mysqli->query($sql2);
+			$row = $result->fetch_assoc();
+			return ["success" => 1, "rss" => $row];
+		} else {
+			return ["success" => 0, "sql" => $sql ,"message" => "Error adding rss: ".$this->mysqli->error];
+		}
 	}
 
 	public function getAllRss() {
