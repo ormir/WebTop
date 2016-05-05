@@ -104,5 +104,6 @@ if (isset($_SESSION["username"])) {
 <script src="js/gallery.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/rss.js"></script>
+<script src="js/feed.js"></script>
 </body>
 </html>
