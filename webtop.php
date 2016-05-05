@@ -15,6 +15,12 @@
 	<img src="images/image.png">
 	<p>Profile</p>
 </div>
+
+<div id="rss_icon" class="desktopicon draggable" ondblclick="openWindow(rss_window)">
+	<img src="images/rss.png">
+	<p>RSS</p>
+</div>
+
 <!-- Windows -->
 <div id="phpinfo_window" class="window draggable ui-widget-header" >
 	<img class="img-close" src="images/close.png">
@@ -41,6 +47,13 @@
 	<img class="img-close" src="images/close.png">
 	<div class="windowcontent">
 		<?php include 'includes/profile.php'; ?>
+	</div>
+</div>
+
+<div id="rss_window" class="window draggable">
+	<img class="img-close" src="images/close.png">
+	<div class="windowcontent">
+		<?php include 'includes/rss.php'; ?>
 	</div>
 </div>
 <?php include "includes/taskleiste.php"; ?>

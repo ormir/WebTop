@@ -13,5 +13,7 @@
 <!-- Add fancyBox -->
 <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
 <script type="text/javascript" src="js/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- MustacheJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/style.css">

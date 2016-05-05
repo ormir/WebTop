@@ -20,14 +20,14 @@ class WebtopDB {
 	public function authenticateUser($user, $password) {
 		$sql = "SELECT username FROM user WHERE username = '$user' AND pwd = '".md5($password)."'";
 		$result = $this->mysqli->query($sql);
-		return ($result->num_rows == 1) ? true : false;
+		return $result->num_rows == 1;
 	}
 
 	public function registerUser($firstname, $lastname, $username, $email, $pwd, $pic) {
 		$sql = "INSERT INTO user (firstname, lastname, username, email, pwd, pic)".
 			" VALUES ('".$firstname."', '".$lastname."', '".$username."', '".$email."', '"
 			.md5($pwd)."', '".$pic."');";
-		return $thir->mysqli->query($sql) === TRUE ? true : false;
+		return $thir->mysqli->query($sql) === TRUE;
 	}
 
 	public function getUserEmail($username) {
@@ -39,7 +39,7 @@ class WebtopDB {
 	public function resetPassword($username) {
 		$newpass = $this->randomPassword();
 		$sql = "UPDATE user SET pwd = '".md5($newpass)."' WHERE username ='".$username."'";
-		return $this->mysqli->query($sql) === TRUE ? $newpass : false;
+		return $this->mysqli->query($sql) === TRUE;
 	}
 
 	public function getAllPositions($username) {
@@ -136,6 +136,55 @@ class WebtopDB {
 	        $pass[] = $alphabet[$n];
 	    }
 	    return implode($pass); //turn the array into a string
+	}
+
+	public function addRss($title, $link, $description, $date) {
+		$sql = "INSERT INTO rss (title, link, description, date)".
+			" VALUES ('".$title."', '".$link."', '".$description."', STR_TO_DATE('".$date."','%d.%m.%Y %H:%i:%s'));";
+
+		return $this->mysqli->query($sql) === TRUE;
+	}
+
+	public function getAllRss() {
+		$sql= "SELECT * FROM rss order by `date` desc;";
+
+		$result = $this->mysqli->query($sql);
+		$elements = array();
+		if($result->num_rows > 0) {
+			while($row = $result->fetch_assoc()) {
+				$elements["id-".$row['id']] = ['id' => $row['id'], 
+										'title' => $row['title'], 
+										'link' => $row['link'],
+										'description' => $row['description'],
+										'date' => $row['date']];
+			}
+		}
+
+		return $elements;
+	}
+
+	public function editRss($changes) {
+
+		$set = "";
+
+		// Organise changes for query
+		foreach ($changes as $colum => $value) {
+			if($colum != "id")
+				$set = $set.$colum."='".$value."', ";
+		}
+
+		// Remove last comma
+		$set = substr($set, 0, -2);
+
+		$sql = "UPDATE rss SET ".$set." WHERE id = '".$changes['id']."'";
+
+		// return $sql;
+
+		if ($this->mysqli->query($sql) === TRUE) {
+			return ["success" => 1];
+		} else {
+		    echo '{"success":0, "message":"Error updating rss: '.$this->mysqli->error.'"}';
+		}
 	}
 
 }

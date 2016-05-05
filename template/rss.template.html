@@ -1,0 +1,25 @@
+<!-- This item is used for the select tags, ex: interest, place -->
+<template id='template'>
+	<div class="my-rss-feed" data-id="{{id}}">
+		<h3>
+			<span class="rss-edit" data-type='title'>{{title}}</span>
+			<input class="rss-edit-input" data-type='title' type='text'/>
+		</h3>
+		<p>
+			<span class="rss-edit" data-type='description'>{{description}}</span>
+			<textarea class="rss-edit-input" data-type='description' rows="4" cols="62" placeholder="Description"></textarea>
+		</p>
+		<p>
+			<span class="rss-edit" data-type='date'>{{date}}</span>
+			<input class="rss-edit-input" data-type='date' type='text'/>
+		</p>
+		<p>
+			<a class="rss-edit" href="{{link}}" data-type='link'>{{link}}</a>
+			<input class="rss-edit-input" data-type='link' type='text'/>
+		</p>
+		<button class='rss-edit-btn'>Edit</button>
+		<button class='rss-delete-btn'>Delete</button>
+		<button class='rss-save-btn'>Save</button>
+		<button class='rss-cancel-btn'>Cancel</button>
+	</div>
+</template>

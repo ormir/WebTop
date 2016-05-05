@@ -335,3 +335,10 @@ img#login-icon{
 	z-index: 100000;
 	bottom: 0;
 }
+
+/* RSS */
+.rss-edit-input,
+.rss-save-btn,
+.rss-cancel-btn {
+	display: none;
+}
