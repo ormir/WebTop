@@ -85,6 +85,23 @@ $(function() {
 		$(this).hide();
 	});
 
+	// Cancel edit
+	$('#myRss').on('click', '.rss-cancel-btn', function() {
+
+		var rssInputList = $(this).parent().find('.rss-edit-input');
+
+		$.each(rssInputList, function(index, input) {
+			$(input).siblings().show();
+			$(input).val("");
+			$(input).hide();
+		});
+
+		$(this).siblings('.rss-edit-btn').show();
+		$(this).siblings('.rss-delete-btn').show();
+		$(this).siblings('.rss-save-btn').hide();
+		$(this).hide();
+	});
+
 	function addToMyRss (id, title, description, link, date) {
 		var rssEl = {
 					"id": id,
