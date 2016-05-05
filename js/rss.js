@@ -102,6 +102,24 @@ $(function() {
 		$(this).hide();
 	});
 
+	// Delete RSS
+	$('#myRss').on('click', '.rss-delete-btn', function() {
+		var thisRss = $(this).parent();
+		$.ajax({
+			url: 'ajax/rss.php',
+			type: 'post',
+			data: {"rss_delete": thisRss.attr('data-id')},
+			success: function (responce) {
+				if (responce.success == 1){
+					// Remove element
+					thisRss.remove();
+				} else {
+					console.log(responce);
+				}
+			}
+		});
+	});
+
 	function addToMyRss (id, title, description, link, date) {
 		var rssEl = {
 					"id": id,

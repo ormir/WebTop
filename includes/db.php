@@ -164,7 +164,6 @@ class WebtopDB {
 	}
 
 	public function editRss($changes) {
-
 		$set = "";
 
 		// Organise changes for query
@@ -184,6 +183,16 @@ class WebtopDB {
 			return ["success" => 1];
 		} else {
 		    echo '{"success":0, "message":"Error updating rss: '.$this->mysqli->error.'"}';
+		}
+	}
+
+	public function deleteRss($id) {
+		$sql = "delete from rss where id = ".$id.";";
+
+		if ($this->mysqli->query($sql) === TRUE) {
+			return ["success" => 1];
+		} else {
+		    return ["success" => 0, "message" => "Error deleting rss: ".$this->mysqli->error];
 		}
 	}
 
