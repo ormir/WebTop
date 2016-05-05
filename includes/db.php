@@ -205,7 +205,6 @@ class WebtopDB {
 		    return ["success" => 0, "message" => "Error deleting rss: ".$this->mysqli->error];
 		}
 	}
-
 }
 
 ?>

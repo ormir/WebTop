@@ -18,7 +18,12 @@
 
 <div id="rss_icon" class="desktopicon draggable" ondblclick="openWindow(rss_window)">
 	<img src="images/rss.png">
-	<p>RSS</p>
+	<p>Webtop<br>RSS</p>
+</div>
+
+<div id="feed_icon" class="desktopicon draggable" ondblclick="openWindow(feed_window)">
+	<img src="images/rss.png">
+	<p>Feed<br>Reader</p>
 </div>
 
 <!-- Windows -->
@@ -54,6 +59,13 @@
 	<img class="img-close" src="images/close.png">
 	<div class="windowcontent">
 		<?php include 'includes/rss.php'; ?>
+	</div>
+</div>
+
+<div id="feed_window" class="window draggable">
+	<img class="img-close" src="images/close.png">
+	<div class="windowcontent">
+		<?php include 'includes/feed.php'; ?>
 	</div>
 </div>
 <?php include "includes/taskleiste.php"; ?>
