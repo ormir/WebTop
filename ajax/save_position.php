@@ -8,6 +8,4 @@ if (isset($_POST['element'])){
 	(new WebtopDB)->savePosition($_POST['element'], $_SESSION['username']);
 }
 
-
-
 ?> 
