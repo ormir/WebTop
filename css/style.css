@@ -342,3 +342,8 @@ img#login-icon{
 .rss-cancel-btn {
 	display: none;
 }
+
+/* Rss Feed */
+#feed-show button {
+	display: none;
+}
