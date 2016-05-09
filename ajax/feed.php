@@ -23,4 +23,5 @@ if (isset($_POST['feed_read'])){
 } else {
 	echo '{"succes" : 0, "message" : "No feed found"}';
 }
+
 ?>

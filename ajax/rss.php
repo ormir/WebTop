@@ -15,4 +15,5 @@ if (isset($_POST['addNewRss'])){
 } else if (isset($_POST['rss_delete'])) {
 	echo json_encode((new WebtopDB)->deleteRss($_POST['rss_delete']));
 }
+
 ?>
