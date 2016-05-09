@@ -35,8 +35,13 @@ function array_to_xml( $data, &$xml_data ) {
      }
 }
 
-// initializing or creating array
-$data = array('rssfeed' => 10);
+if (isset($_POST['addNewRss'])){
+	// initializing or creating array
+	$data = array((new WebtopDB)->addRss($_POST['addNewRss']['title'], 
+								$_POST['addNewRss']['link'],
+								$_POST['addNewRss']['description'],
+								$_POST['addNewRss']['date']));
+}
 
 // creating object of SimpleXMLElement
 $xml_data = new SimpleXMLElement('<?xml version="1.0"?><data></data>');
