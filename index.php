@@ -50,6 +50,28 @@ if (isset($_POST['submit-register'])) {
 	} else  echo "User registration failed";
 }
 
+// Save rss to user
+if (isset($_POST['rss_export'])) {
+	// echo "Save ".$_POST['rss_export'];
+	$file = $_POST['rss_export'];
+	if (file_exists($file)) {
+		header('Content-Description: File Transfer');
+		header('Content-Type: application/octet-stream');
+		header('Content-Disposition: attachment; filename='.basename($file));
+		header('Content-Transfer-Encoding: binary');
+		header('Expires: 0');
+		header('Cache-Control: must-revalidate');
+		header('Pragma: public');
+		header('Content-Length: ' . filesize($file));
+		ob_clean();
+		flush();
+		readfile($file);
+		exit;
+	} else {
+		echo "File '".$_POST['rss_export']."' couldn't be opened";
+	}
+}
+
 // Recover Pass
 if (isset($_POST['recover'])) {
 	$email = $db->getUserEmail($_POST['username']);

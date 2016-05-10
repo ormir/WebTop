@@ -14,6 +14,20 @@ $(function() {
 		});
 	});
 	
+	// Export rss
+	$('#exportRssBtn').click(function() {
+		$.ajax({
+			url: 'ajax/simpleXML.php',
+			type: 'post',
+		})
+		.done(function(response) {
+			if(response.success == 1) {
+				console.log("XML successfully exported");
+				$('<form method="post" action="index.php"><input name="rss_export" value="'+ response.filename + '"></form>').submit();
+			}
+		})
+		
+	});
 
 	// Add new RSS to DB
 	$('#addRssBtn').click(function(event) {
@@ -27,15 +41,15 @@ $(function() {
 				"date": $("#addRssDate").val(), 
 				"description": $("#addRssDesctiption").val()
 			}},
-		success: function (responce) {
-				if (responce.success == 1){
-					addToMyRss(responce.rss);
+		success: function (response) {
+				if (response.success == 1){
+					addToMyRss(response.rss);
 					$("#addRssTitle").val("");
 					$("#addRssLink").val("");
 					$("#addRssDate").val("");
 					$("#addRssDesctiption").val("");
 				} else {
-					console.log(responce.sql);
+					console.log(response.sql);
 				}
 			}
 		});
