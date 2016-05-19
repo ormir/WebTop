@@ -12,4 +12,12 @@
 	}
 ?>
 </select>
+
+<div id="weather_info">
+	<img src="images/weather.png"/>
+	<h2 id="weather_city">City Name</h2>
+	<h3 id="weather_desc">Description</h3>
+	<h3 id="weather_temp">Temperature</h3>
+</div>
+
 </div> 

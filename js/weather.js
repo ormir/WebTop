@@ -1,5 +1,5 @@
 $(function(){
-
+//Ajax request, receiving data
 	$('#weather_drop_down').change(function(event){
 		var value = $(this).find(":selected").val();
 		$.ajax({
@@ -8,7 +8,12 @@ $(function(){
 			data: {"cityZIP": value},
 		})
 		.done(function(response) {
-			console.log(response);
+			if(response.success == 1){
+				$('#weather_city').html(response.message.City);
+
+			}else{
+				console.log(response.message);
+			}
 		});
 	});
 
