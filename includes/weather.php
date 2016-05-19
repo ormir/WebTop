@@ -1,4 +1,5 @@
 <div>
+<div id="city_drop_down">
 <select name="cities" id="weather_drop_down">
 <?php
 	$cities = array('Beverly Hills' => 90210,
@@ -12,9 +13,9 @@
 	}
 ?>
 </select>
-
+</div>
 <div id="weather_info">
-	<img src="images/weather.png"/>
+	<img id="weathernow" src="images/weather.png"/>
 	<h2 id="weather_city">City Name</h2>
 	<h3 id="weather_desc">Description</h3>
 	<h3 id="weather_temp">Temperature</h3>

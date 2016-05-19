@@ -347,3 +347,22 @@ img#login-icon{
 #feed-show button {
 	display: none;
 }
+
+#weather_info{
+	padding-left: 40px;
+	padding-top: 40px;
+}
+
+#weathernow{
+	height: 170px;
+	width: 170px;
+	padding-right: 60px;
+}
+
+
+#city_drop_down {
+	padding-left: 170px;
+	padding-top:40px;
+	height:20px;
+	width:40px;
+}
