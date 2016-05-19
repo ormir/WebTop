@@ -1,8 +1,8 @@
 <!-- Icons -->
-<div id="fhtw_icon" class="desktopicon draggable" ondblclick="openWindow(fhtw_window)">
+<!-- <div id="fhtw_icon" class="desktopicon draggable" ondblclick="openWindow(fhtw_window)">
 	<img src="images/book.png">
 	<p>Technikum<br>Wien</p>
-</div>
+</div> -->
 <div id="phpinfo_icon" class="desktopicon draggable" ondblclick="openWindow(phpinfo_window)">
 	<img src="images/code.png">
 	<p>PHP</p>
@@ -39,12 +39,12 @@
 	</div>
 </div>
 
-<div id="fhtw_window" class="window draggable">
+<!-- <div id="fhtw_window" class="window draggable">
 	<img class="img-close" src="images/close.png">
 	<div class="windowcontent">
-		<!-- <iframe src="http://www.technikum-wien.at"></iframe> -->
+	 <iframe src="http://www.technikum-wien.at"></iframe> 
 	</div>
-</div>
+</div> -->
 
 <div id="gallery_window" class="window draggable">
 	<img class="img-close" src="images/close.png">
