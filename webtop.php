@@ -26,6 +26,11 @@
 	<p>Feed<br>Reader</p>
 </div>
 
+<div id="weather_icon" class="desktopicon draggable" ondblclick="openWindow(feed_window)">
+	<img src="images/weather.png">
+	<p>Weather</p>
+</div>
+
 <!-- Windows -->
 <div id="phpinfo_window" class="window draggable ui-widget-header" >
 	<img class="img-close" src="images/close.png">
@@ -68,4 +73,12 @@
 		<?php include 'includes/feed.php'; ?>
 	</div>
 </div>
+
+<div id="weather_window" class="window draggable">
+	<img class="img-close" src="images/close.png">
+	<div class="windowcontent">
+		<?php include 'includes/weather.php'; ?>
+	</div>
+</div>
+
 <?php include "includes/taskleiste.php"; ?>
