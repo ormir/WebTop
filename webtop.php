@@ -26,7 +26,7 @@
 	<p>Feed<br>Reader</p>
 </div>
 
-<div id="weather_icon" class="desktopicon draggable" ondblclick="openWindow(feed_window)">
+<div id="weather_icon" class="desktopicon draggable" ondblclick="openWindow(weather_window)">
 	<img src="images/weather.png">
 	<p>Weather</p>
 </div>
